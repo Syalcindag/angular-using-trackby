@@ -18,4 +18,16 @@ export class AppComponent implements OnInit{
       this.users = data;
     })
   }
+
+  addUser(){
+    this.httpClient.get<any[]>('https://jsonplaceholder.typicode.com/users').subscribe(data => {
+      this.users = data;
+
+      this.users.push({"name": "Sefa yalçındağ"})
+    })
+  }
+
+  trackByFn(index, item){
+    return index;
+  }
 }
